@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV — MIGAN Paterne</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#1e88e5;
+      --accent:#0d47a1;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f3f8ff;
+      --glass: rgba(255,255,255,0.85);
+      --rounded:16px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg, #e9f2ff 0%, var(--bg) 100%);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:30px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:0 auto;
+      background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.9));
+      border-radius:var(--rounded);
+      box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+    }
+
+    /* left column (profile) */
+    .left{
+      background: linear-gradient(180deg,var(--primary),var(--accent));
+      color:white;
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      min-height:420px;
+    }
+
+    .avatar{
+      width:110px;
+      height:110px;
+      border-radius:22px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:28px;
+      letter-spacing:0.6px;
+      border:2px solid rgba(255,255,255,0.12);
+    }
+
+    .name{
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:0.6px;
+    }
+
+    .role{
+      font-size:14px;
+      opacity:0.95;
+      margin-top:6px;
+    }
+
+    .section-title{
+      font-weight:600;
+      font-size:13px;
+      margin-bottom:8px;
+      opacity:0.95;
+    }
+
+    .info{
+      background: rgba(255,255,255,0.08);
+      padding:12px;
+      border-radius:10px;
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .contact-list{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-size:14px;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* right column (details) */
+    .right{
+      padding:28px 30px;
+      background:transparent;
+    }
+
+    header.cv-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .headline{
+      font-size:18px;
+      font-weight:700;
+      color:var(--accent);
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .block{
+      margin-top:18px;
+    }
+
+    .block h3{
+      margin:0 0 10px 0;
+      font-size:15px;
+      color:var(--accent);
+    }
+
+    .education, .experience, .skills, .languages{
+      background: #fff;
+      padding:16px;
+      border-radius:12px;
+      box-shadow: 0 4px 14px rgba(16,24,40,0.04);
+    }
+
+    .edu-item, .exp-item{
+      margin-bottom:12px;
+      font-size:14px;
+    }
+    .edu-item small, .exp-item small{ color:var(--muted); display:block; margin-top:4px; font-size:13px; }
+
+    /* skills */
+    .skill{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .skill .label{ font-weight:600; font-size:14px; color:#0f1724 }
+    .bar{
+      flex:1;
+      height:10px;
+      background:#e6eefc;
+      border-radius:999px;
+      overflow:hidden;
+      margin-left:12px;
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      background: linear-gradient(90deg,var(--primary),var(--accent));
+      border-radius:999px;
+    }
+
+    /* languages */
+    .lang-list{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .lang{
+      background:#f3f6ff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    /* small screens */
+    @media (max-width:880px){
+      .container{ grid-template-columns: 1fr; }
+      .left{ flex-direction:row; align-items:center; padding:18px; gap:12px; }
+      .right{ padding:18px; }
+      .avatar{ width:72px;height:72px;border-radius:12px;font-size:20px }
+    }
+
+    /* print */
+    @media print{
+      body{ padding:0; background:white; }
+      .container{ box-shadow:none; border-radius:0; }
+      .left{ background:black; color:white; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- LEFT -->
+    <div class="left" aria-label="colonne de gauche - profil">
+      <div style="display:flex;gap:14px;align-items:center">
+         <div class="avatar" aria-hidden="true">MP</div>
+        <div>
+          <div class="name">MIGAN Paterne</div>
+          <div class="role">Étudiant — Licence 2 Informatique & Réseaux</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Profil</div>
+        <div class="info">
+          Étudiant en deuxième année de licence en informatique et sécurité des réseaux. Passionné par le développement web et les architectures réseau.
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Formation</div>
+        <div class="info">
+          Baccalauréat de gestion — Bénin, 2024
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Langues</div>
+        <div class="contact-list">
+          <span class="pill">Français — natif</span>
+          <span class="pill">Anglais — niveau intermédiaire</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <header class="cv-header">
+        <div>
+          <div class="headline">Curriculum Vitae</div>
+          <div class="subtitle">MIGAN Paterne — Étudiant en Réseaux & Sécurité</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-weight:600;color:var(--muted)">Contact</div>
+          <div style="margin-top:6px;font-size:14px;color:var(--muted)">e-mail : paterne5@gmail.com<br>Tel : 0150091901</div>
+        </div>
+      </header>
+
+      <!-- EXPERIENCE -->
+      <div class="block">
+        <h3>Expérience professionnelle</h3>
+        <div class="experience">
+          <div class="exp-item">
+            <strong>HTML & CSS</strong>
+            <small>Création de pages web statiques et mise en forme responsive (projets personnels et exercices scolaires).</small>
+          </div>
+
+          <div class="exp-item">
+            <strong>Langage C</strong>
+            <small>Notions et méthodes de programmation structurée (projets académiques).</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPETENCES -->
+      <div class="block" style="margin-top:16px">
+        <h3>Compétences</h3>
+        <div class="skills">
+          <div class="skill">
+            <div class="label">Créativité</div>
+            <div class="bar" title="Créativité"><i style="width:85%"></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label">Ponctualité</div>
+            <div class="bar" title="Ponctualité"><i style="width:90%"></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label">Ouvert d'esprit</div>
+            <div class="bar" title="Ouvert d'esprit"><i style="width:80%"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUES -->
+      <div class="block" style="margin-top:16px">
+        <h3>Langues</h3>
+        <div class="languages">
+          <div class="lang-list">
+            <div class="lang">Français — Courant</div>
+            <div class="lang">Anglais — Intermédiaire</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER / petits détails -->
+      <div style="margin-top:20px; font-size:13px; color:var(--muted)">
+        <strong>Profil court :</strong> étudiant motivé, curieux et rigoureux, cherchant des opportunités de stage ou projets en développement web / administration réseau.
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

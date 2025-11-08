@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau CSS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* === STYLE CSS intégré === */
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #6a85b6, #bac8e0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      color: #2e3a59;
+      margin-bottom: 30px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      width: 400px;
+      text-align: center;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    table:hover {
+      transform: scale(1.03);
+    }
+
+    td {
+      border: 2px solid #4b5bdc;
+      padding: 20px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    td[colspan] {
+      background-color: #4b5bdc;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    td[rowspan] {
+      background-color: #8795f8;
+      color: white;
+      font-weight: bold;
+    }
+
+    .tableau-image {
+      border-radius: 12px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Tableaux stylisés</h1>
+
+  <table class="tableau-image">
+    <tr>
+      <td colspan="2">RMS1</td>
+    </tr>
+    <tr>
+      <td>RMS2</td>
+      <td>RMS3</td>
+    </tr>
+  </table>
+
+  <table class="tableau-image">
+    <tr>
+      <td rowspan="2">RGL2</td>
+      <td>RGL1</td>
+    </tr>
+    <tr>
+      <td>RGL3</td>
+    </tr>
+  </table>
+
+  <table class="tableau-image">
+    <tr>
+      <td colspan="3">A</td>
+    </tr>
+    <tr>
+      <td rowspan="2">B</td>
+      <td colspan="2">C</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>E</td>
+    </tr>
+  </table>
+
+</body>
+</html>

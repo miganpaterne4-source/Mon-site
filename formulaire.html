@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire stylé</title>
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    fieldset {
+      border: 2px solid #5563DE;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #5563DE;
+      padding: 0 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #5563DE;
+      box-shadow: 0 0 5px rgba(85, 99, 222, 0.4);
+      outline: none;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: #5563DE;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="reset"] {
+      background-color: #aaa;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3944BC;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #888;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form method="post" action="cible_formulaire.php">
+    <fieldset>
+      <legend>Vos coordonnées</legend>
+
+      <label for="nom">Quel est votre nom ?</label>
+      <input type="text" name="nom" id="nom" tabindex="10">
+
+      <label for="prenom">Quel est votre prénom ?</label>
+      <input type="text" name="prenom" id="prenom" tabindex="20">
+
+      <label for="email">Quel est votre e-mail ?</label>
+      <input type="email" name="email" id="email" tabindex="30">
+    </fieldset>
+
+    <fieldset>
+      <legend>Votre souhait</legend>
+
+      <p>Faites un souhait que vous voudriez voir exaucé :</p>
+
+      <label><input type="radio" name="souhait" value="riche" id="riche" tabindex="40">Être riche</label>
+      <label><input type="radio" name="souhait" value="celebre" id="celebre" tabindex="50">Être célèbre</label>
+      <label><input type="radio" name="souhait" value="intelligent" id="intelligent" tabindex="60">Être <strong>encore</strong> plus intelligent</label>
+      <label><input type="radio" name="souhait" value="autre" id="autre" tabindex="70">Autre...</label>
+
+      <label for="precisions">Précisez :</label>
+      <textarea name="precisions" id="precisions" cols="40" rows="4" tabindex="80"></textarea>
+    </fieldset>
+
+    <p>
+      <input type="submit" value="Envoyer">
+      <input type="reset" value="Réinitialiser">
+    </p>
+  </form>
+
+</body>
+</html>
